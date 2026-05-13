@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<!-- HERO -->
 <section class="page-hero">
 
     <div class="container text-center">
@@ -16,8 +15,8 @@
         <p class="page-subtitle">
 
             Threat intelligence,
-            offensive security,
             cloud defense,
+            penetration testing,
             and cyber resilience insights.
 
         </p>
@@ -26,47 +25,43 @@
 
 </section>
 
-<!-- BLOG SECTION -->
 <section class="blog-section">
 
     <div class="container">
 
         <div class="row g-4">
 
-            <!-- BLOG CARD -->
+            {% for post in posts %}
+
             <div class="col-lg-4 col-md-6">
 
                 <div class="blog-card">
 
-                    <div class="blog-image">
-
-                        <i class="bi bi-shield-lock"></i>
-
-                    </div>
+                    <img src="{{ post.image.url }}"
+                         class="blog-real-image"
+                         alt="{{ post.title }}">
 
                     <div class="blog-content">
 
                         <span class="blog-category">
 
-                            Penetration Testing
+                            {{ post.created_at|date:"M d, Y" }}
 
                         </span>
 
                         <h4>
 
-                            Common Web Application
-                            Vulnerabilities in 2026
+                            {{ post.title }}
 
                         </h4>
 
                         <p>
 
-                            Understanding critical web security flaws
-                            affecting modern organizations.
+                            {{ post.excerpt|truncatewords:18 }}
 
                         </p>
 
-                        <a href="#">
+                        <a href="{% url 'blog_detail' post.slug %}">
 
                             Read More →
 
@@ -78,95 +73,17 @@
 
             </div>
 
-            <!-- BLOG CARD -->
-            <div class="col-lg-4 col-md-6">
+            {% empty %}
 
-                <div class="blog-card">
+            <div class="text-center">
 
-                    <div class="blog-image">
-
-                        <i class="bi bi-cloud-check"></i>
-
-                    </div>
-
-                    <div class="blog-content">
-
-                        <span class="blog-category">
-
-                            Cloud Security
-
-                        </span>
-
-                        <h4>
-
-                            Securing Cloud Infrastructure
-                            Against Modern Threats
-
-                        </h4>
-
-                        <p>
-
-                            Cloud-native security strategies
-                            for scalable environments.
-
-                        </p>
-
-                        <a href="#">
-
-                            Read More →
-
-                        </a>
-
-                    </div>
-
-                </div>
+                <h4>
+                    No blog posts yet.
+                </h4>
 
             </div>
 
-            <!-- BLOG CARD -->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="blog-card">
-
-                    <div class="blog-image">
-
-                        <i class="bi bi-bug"></i>
-
-                    </div>
-
-                    <div class="blog-content">
-
-                        <span class="blog-category">
-
-                            Threat Intelligence
-
-                        </span>
-
-                        <h4>
-
-                            Understanding Advanced
-                            Persistent Threats (APTs)
-
-                        </h4>
-
-                        <p>
-
-                            How threat actors are evolving
-                            their attack methodologies.
-
-                        </p>
-
-                        <a href="#">
-
-                            Read More →
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
+            {% endfor %}
 
         </div>
 

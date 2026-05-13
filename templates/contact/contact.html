@@ -38,39 +38,52 @@
 
                     </h3>
 
-                    <form>
+                    <form method="POST">
 
-                        <div class="mb-3">
+    {% csrf_token %}
 
-                            <input type="text"
-                                   class="form-control custom-input"
-                                   placeholder="Full Name">
+    {% if success %}
 
-                        </div>
+        <div class="alert alert-success">
 
-                        <div class="mb-3">
+            Message sent successfully.
 
-                            <input type="email"
-                                   class="form-control custom-input"
-                                   placeholder="Email Address">
+        </div>
 
-                        </div>
+    {% endif %}
 
-                        <div class="mb-3">
+    <div class="mb-3">
 
-                            <textarea class="form-control custom-input"
-                                      rows="5"
-                                      placeholder="Message"></textarea>
+        {{ form.full_name }}
 
-                        </div>
+    </div>
 
-                        <button class="btn-primary-custom">
+    <div class="mb-3">
 
-                            Send Message
+        {{ form.email }}
 
-                        </button>
+    </div>
 
-                    </form>
+    <div class="mb-3">
+
+        {{ form.subject }}
+
+    </div>
+
+    <div class="mb-3">
+
+        {{ form.message }}
+
+    </div>
+
+    <button class="btn-primary-custom">
+
+        Send Message
+
+    </button>
+
+</form>
+                        
 
                 </div>
 

@@ -393,6 +393,90 @@
 
 </section>
 
+<!-- COMMUNITY SECTION -->
+<section class="community-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+
+                Community & Engagement
+
+            </h2>
+
+            <p class="section-subtitle mx-auto">
+
+                Empowering cybersecurity awareness,
+                mentorship,
+                and collaboration across Africa.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for activity in activities %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="community-card">
+
+                    {% if activity.image %}
+
+                        <img src="{{ activity.image.url }}"
+                             class="community-image"
+                             alt="{{ activity.title }}">
+
+                    {% endif %}
+
+                    {% if activity.video %}
+
+                        <video controls
+                               class="community-video">
+
+                            <source src="{{ activity.video.url }}">
+
+                        </video>
+
+                    {% endif %}
+
+                    <div class="community-content">
+
+                        <span class="community-type">
+
+                            {{ activity.activity_type }}
+
+                        </span>
+
+                        <h4>
+
+                            {{ activity.title }}
+
+                        </h4>
+
+                        <p>
+
+                            {{ activity.description|truncatewords:20 }}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
 <!-- WHY CHOOSE US -->
 <section class="why-section">
 
