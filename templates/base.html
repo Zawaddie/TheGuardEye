@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TheGuardEye | Cybersecurity & Threat Intelligence</title>
+
+    <meta name="description"
+          content="TheGuardEye provides advanced cybersecurity, penetration testing, SOC monitoring, threat intelligence, and cloud security services.">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- LOCAL BOOTSTRAP -->
+    <link rel="stylesheet"
+          href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- LOCAL ICONS -->
+    <link rel="stylesheet"
+          href="{% static 'vendor/icons/bootstrap-icons.css' %}">
+
+    <!-- LOCAL AOS -->
+    <link rel="stylesheet"
+          href="{% static 'vendor/aos/css/aos.css' %}">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="cyber-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    
+    {% include 'partials/navbar.html' %}
+
+    <!-- MAIN CONTENT -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- FOOTER -->
+    {% include 'partials/footer.html' %}
+
+    <!-- LOCAL BOOTSTRAP JS -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- LOCAL AOS -->
+    <script src="{% static 'vendor/aos/js/aos.js' %}"></script>
+
+    <!-- AOS INIT -->
+    <script>
+        AOS.init({
+            duration:1000,
+            once:true
+        });
+    </script>
+
+    <!-- CUSTOM JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
